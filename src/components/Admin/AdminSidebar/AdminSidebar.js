@@ -11,8 +11,8 @@ const AdminSidebar = () => {
                 <Link to="branch-operation">
                     <li className='hover:bg-gray-400 p-2'>Branch Operation</li>
                 </Link>
-                <Link to="link3">
-                    <li className='hover:bg-gray-400 p-2'>Coming soon...</li>
+                <Link to="product-management">
+                    <li className='hover:bg-gray-400 p-2'>Product Management</li>
                 </Link>
                 <Link to="link4">
                     <li className='hover:bg-gray-400 p-2'>Coming soon...</li>

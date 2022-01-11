@@ -18,27 +18,26 @@ const Settings = () => {
 
         setDisplaySetting(newSetting);
     }
-
     return (
         <div>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap py-6">
                 <div className="w-6/12 md:w-3/12 px-4">
-                    <div onClick={() => handleDisplaySetting("branch")} className='shadow-md bg-blue-400 text-white p-2'>
+                    <div onClick={() => handleDisplaySetting("branch")} className='shadow-md bg-blue-400 text-white p-2 py-6 cursor-pointer text-center'>
                         Branch
                     </div>
                 </div>
                 <div className="w-6/12 md:w-3/12 px-4">
-                    <div onClick={() => handleDisplaySetting("store")} className='shadow-md bg-emerald-500 text-white p-2'>
+                    <div onClick={() => handleDisplaySetting("store")} className='shadow-md bg-emerald-400 text-white p-2 py-6 cursor-pointer text-center'>
                         Store
                     </div>
                 </div>
                 <div className="w-6/12 md:w-3/12 px-4">
-                    <div onClick={() => handleDisplaySetting("bin")} className='shadow-md bg-yellow-500 text-white p-2'>
+                    <div onClick={() => handleDisplaySetting("bin")} className='shadow-md bg-yellow-400 text-white p-2 py-6 cursor-pointer text-center'>
                         Bin
                     </div>
                 </div>
                 <div className="w-6/12 md:w-3/12 px-4">
-                    <div onClick={() => handleDisplaySetting("user")} className='shadow-md bg-red-400 text-white p-2'>
+                    <div onClick={() => handleDisplaySetting("user")} className='shadow-md bg-red-400 text-white p-2 py-6 cursor-pointer text-center'>
                         User
                     </div>
                 </div>

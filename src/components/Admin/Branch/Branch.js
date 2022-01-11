@@ -1,4 +1,5 @@
 import React from 'react';
+import CreateBranchForm from '../CreateBranchForm/CreateBranchForm';
 
 const Branch = () => {
     return (
@@ -11,7 +12,7 @@ const Branch = () => {
             </ul>
 
             <h2 className="text-2xl my-4">Create Branch</h2>
-            form here... [coming soon...]
+            <CreateBranchForm />
         </div>
     );
 };
