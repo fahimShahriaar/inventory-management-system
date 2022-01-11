@@ -5,19 +5,19 @@ const Receive = () => {
         alert("page comming soon...")
     }
     return (
-        <div className="bg-emerald-100 min-h-screen font-medium">
+        <div className="px-4">
 
-            <div className="">
+            <div className="bg-gray-200 pb-4">
                 {/* recieve section */}
                 <section className="">
                     <form className="">
-                        <div className="grid grid-cols-3 gap-3 p-4 bg-gray-600 text-white">
+                        <div className="flex flex-wrap justify-between items-center px-4 py-2 bg-gray-400 text-white">
                             <div className="">
-                                <h1 className="text-xl">Receive</h1>
+                                <h1 className="">Receive</h1>
                             </div>
                             <div className="">
                                 <label for="branch">Hub/Branch </label>
-                                <select id="branch" className="text-black" name="branchlist" form="branchfrom">
+                                <select id="branch" className="text-black ml-4 focus:outline-none px-2 text-sm" name="branchlist" form="branchfrom">
                                     <option value="dhaka">Dhaka</option>
                                     <option value="khulna">Khulna</option>
                                     <option value="rajshahi">Rajshahi</option>
@@ -25,28 +25,27 @@ const Receive = () => {
                                 </select>
                             </div>
                             <div className="">
-                                <button onClick={activateLasers} className="bg-green-600 px-2 rounded">Edit or Delete</button>
+                                <button onClick={activateLasers} className="bg-emerald-600 text-sm px-4 py-1">Add/Edit</button>
                             </div>
 
                         </div>
 
-                        <div className="bg-indigo-900 text-white">
-
-                            <div className="grid grid-cols-4 gap-4 p-4">
+                        <div className="bg-gray-300">
+                            <div className="flex flex-wrap justify-between p-4">
                                 <div className="">
-                                    <lebel className="">PO </lebel>
+                                    <lebel className="mr-1 text-sm">PO</lebel>
                                     <input type="text" className="text-black rounded"></input>
                                 </div>
                                 <div className="">
-                                    <lebel className="">Date </lebel>
+                                    <lebel className="mr-1 text-sm">Date </lebel>
                                     <input type="text" className="text-black rounded"></input>
                                 </div>
                                 <div className="">
-                                    <lebel className="">Ref </lebel>
+                                    <lebel className="mr-1 text-sm">Ref </lebel>
                                     <input type="text" className="text-black rounded"></input>
                                 </div>
                                 <div className="">
-                                    <lebel className="">Received From </lebel>
+                                    <lebel className="mr-1 text-sm">Received From </lebel>
                                     <input type="text" className="text-black rounded"></input>
                                 </div>
                             </div>
@@ -56,9 +55,8 @@ const Receive = () => {
                             <lebel className="px-2 custom-text-color1">Notes</lebel>
                             <input type="text" className="rounded border"></input>
                         </div>
-                        <hr className="border-slate-700"></hr>
 
-                        <div className="flex items-center justify-center container mx-auto">
+                        <div className="flex items-center justify-center border-t-2 border-b-2 border-gray-500">
                             <div className="p-4 text-left">
                                 <lebel className="px-2 custom-text-color1">Quick Scan</lebel>
                                 <input type="text" className="rounded"></input>
@@ -72,11 +70,10 @@ const Receive = () => {
                                 <input type="checkbox" id="myCheck" onclick="myFunction()"></input>
                             </div>
                         </div>
-                        <hr className="border-slate-700"></hr>
 
                         {/* receive table  */}
-                        <section className="mt-5 container mx-auto flex items-center">
-                            <table class="mx-auto">
+                        <section className="border-2 border-gray-500 mt-4">
+                            <table className="">
                                 <thead className="">
                                     <tr className="">
                                         <th>Code</th>
@@ -116,7 +113,7 @@ const Receive = () => {
                             </table>
                         </section>
 
-                        <input className="bg-green-500 rounded px-3 mt-4 text-white" type="submit" value="Confirm & Post" />
+                        <input className="bg-emerald-600 px-4 my-4 text-white" type="submit" value="Confirm & Post" />
                     </form>
                 </section>
 
