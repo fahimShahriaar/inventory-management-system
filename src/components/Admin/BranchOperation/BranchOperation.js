@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Delivery from '../Delivery/Delivery';
 import Receive from '../Receive/Receive';
 
 const BranchOperation = () => {
@@ -44,6 +45,7 @@ const BranchOperation = () => {
 
             {/* dynamically rendering */}
             {displayOperation.receive && <Receive />}
+            {displayOperation.delivery && <Delivery />}
         </div>
     );
 };

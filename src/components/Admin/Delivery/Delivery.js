@@ -1,9 +1,6 @@
 import React from 'react';
-// import './Receive.css'
-const Receive = () => {
-    const activateLasers = () => {
-        alert("page comming soon...")
-    }
+
+const Delivery = () => {
     return (
         <div className="px-4 mt-8">
 
@@ -11,11 +8,11 @@ const Receive = () => {
                 {/* recieve section */}
                 <section className="">
                     <form className="">
-                        <div className="flex flex-wrap justify-between items-center px-4 py-2 bg-blue-400 text-white">
-                            <div className="">
-                                <h1 className="">Receive</h1>
+                        <div className="flex flex-wrap justify-between items-center px-4 py-2 bg-emerald-600 text-white">
+                            <div className="w-1/2">
+                                <h1 className="">Delivery</h1>
                             </div>
-                            <div className="">
+                            <div className="w-1/2">
                                 <label for="branch">Hub/Branch </label>
                                 <select id="branch" className="text-black ml-4 focus:outline-gray-400 px-2 text-sm" name="branchlist" form="branchfrom">
                                     <option value="dhaka">Dhaka</option>
@@ -24,16 +21,13 @@ const Receive = () => {
                                     <option value="ctg">CTG</option>
                                 </select>
                             </div>
-                            <div className="">
-                                <button onClick={activateLasers} className="bg-blue-500 text-sm px-4 py-1">Add/Edit</button>
-                            </div>
 
                         </div>
 
                         <div className="bg-gray-300">
                             <div className="flex flex-wrap justify-between p-4">
                                 <div className="">
-                                    <lebel className="mr-1 text-sm">PO</lebel>
+                                    <lebel className="mr-1 text-sm">SL</lebel>
                                     <input type="text" className="text-black focus:outline-gray-400 px-2 py-1 text-sm"></input>
                                 </div>
                                 <div className="">
@@ -45,7 +39,7 @@ const Receive = () => {
                                     <input type="text" className="text-black focus:outline-gray-400 px-2 py-1 text-sm"></input>
                                 </div>
                                 <div className="">
-                                    <lebel className="mr-1 text-sm">Received From </lebel>
+                                    <lebel className="mr-1 text-sm">Delivery to</lebel>
                                     <input type="text" className="text-black focus:outline-gray-400 px-2 py-1 text-sm"></input>
                                 </div>
                             </div>
@@ -112,7 +106,7 @@ const Receive = () => {
                                 </tbody>
                             </table >
 
-                            <button className="bg-blue-600 text-gray-100 text-sm px-4 py-1 mt-6" type="submit">Confirm & Post</button>
+                            <button className="bg-emerald-700 text-gray-100 text-sm px-4 py-1 mt-6" type="submit">Confirm & Post</button>
 
                         </section >
                     </form >
@@ -126,4 +120,4 @@ const Receive = () => {
     );
 };
 
-export default Receive;
+export default Delivery;
