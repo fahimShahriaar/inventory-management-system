@@ -5,7 +5,7 @@ const CreateBranchForm = () => {
     const { branchListState } = useContext(AppContext);
     const [branchList, setBranchList] = branchListState;
     const branchRef = useRef();
-    console.log(branchList);
+    // console.log(branchList);
     const handleCreateBranch = () => {
         const newBranchList = [...branchList, branchRef.current.value];
         setBranchList(newBranchList);

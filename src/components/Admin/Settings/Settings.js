@@ -1,22 +1,31 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AppContext } from '../../../App';
 import Bin from '../Bin/Bin';
 import Branch from '../Branch/Branch';
 import Store from '../Store/Store';
 import User from '../User/User';
 
 const Settings = () => {
-    const [displaySetting, setDisplaySetting] = useState({
+    // ==== new code for review ====
+    // get setting state from context API
+    const { displaySettingState } = useContext(AppContext);
+    const [displaySetting] = displaySettingState;
+
+
+
+    // previous code for review
+    const [displaySettings, setDisplaySettings] = useState({
         branch: true, store: false, bin: false, user: false
     });
     const handleDisplaySetting = (display) => {
-        let newSetting = { ...displaySetting };
+        let newSetting = { ...displaySettings };
         for (const key in newSetting) {
             newSetting[key] = false;
         }
         newSetting[display] = newSetting[display] ? false : true;
         console.log(newSetting);
 
-        setDisplaySetting(newSetting);
+        setDisplaySettings(newSetting);
     }
     return (
         <div>
