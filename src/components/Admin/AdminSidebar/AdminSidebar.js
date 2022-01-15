@@ -9,21 +9,29 @@ const AdminSidebar = () => {
 
     // managing settings
     const [isSettingsDropDownOpen, setIsSettingsDropDownOpen] = useState(false);
-    // const [displaySetting, setDisplaySetting] = useState({
-    //     branch: true, store: false, bin: false, user: false
-    // });
     const handleDisplaySetting = (display) => {
         let newSetting = { ...displaySetting };
         for (const key in newSetting) {
             newSetting[key] = false;
         }
         newSetting[display] = newSetting[display] ? false : true;
-        // console.log(newSetting);
-
         setDisplaySetting(newSetting);
     }
 
-    console.log(displaySetting);
+    // Managing Branch Operation
+    const [isBranchOpDropDownOpen, setIsBranchOpDropDownOpen] = useState(false);
+    const { displayOperationState } = useContext(AppContext);
+    const [displayOperation, setDisplayOperation] = displayOperationState;
+    const handleOperation = (operation) => {
+        let newOperation = { ...displayOperation };
+        for (const key in newOperation) {
+            newOperation[key] = false;
+        }
+        newOperation[operation] = newOperation[operation] ? false : true;
+        // console.log(newOperation);
+        setDisplayOperation(newOperation);
+    }
+
 
     return (
         <div className='h-full bg-gray-700 text-gray-50 border-r-2 border-gray-700'>
@@ -35,16 +43,28 @@ const AdminSidebar = () => {
                         {
                             isSettingsDropDownOpen &&
                             <ul className='bg-gray-700'>
-                                <li onClick={() => handleDisplaySetting("branch")} className='px-4 py-1 hover:bg-gray-400'>Branch</li>
-                                <li onClick={() => handleDisplaySetting("store")} className='px-4 py-1 hover:bg-gray-400'>Store</li>
-                                <li onClick={() => handleDisplaySetting("bin")} className='px-4 py-1 hover:bg-gray-400'>Bin</li>
-                                <li onClick={() => handleDisplaySetting("user")} className='px-4 py-1 hover:bg-gray-400'>User</li>
+                                <li onClick={() => handleDisplaySetting("branch")} className='px-6 py-1 hover:bg-gray-400 border-t border-gray-700'>Branch</li>
+                                <li onClick={() => handleDisplaySetting("store")} className='px-6 py-1 hover:bg-gray-400'>Store</li>
+                                <li onClick={() => handleDisplaySetting("bin")} className='px-6 py-1 hover:bg-gray-400'>Bin</li>
+                                <li onClick={() => handleDisplaySetting("user")} className='px-6 py-1 hover:bg-gray-400'>User</li>
                             </ul>
                         }
                     </li>
                 </Link>
                 <Link to="branch-operation">
-                    <li className='hover:bg-gray-400 p-2'>Branch Operation</li>
+                    <li className='hover:bg-gray-400'
+                        onClick={() => setIsBranchOpDropDownOpen(true)}>
+                        <span className='block p-2'>Branch Operation</span>
+                        {
+                            isBranchOpDropDownOpen &&
+                            <ul className='bg-gray-700'>
+                                <li onClick={() => handleOperation("receive")} className='px-6 py-1 hover:bg-gray-400 border-t border-gray-700'>Receive</li>
+                                <li onClick={() => handleOperation("delivery")} className='px-6 py-1 hover:bg-gray-400'>Delivery</li>
+                                <li onClick={() => handleOperation("adjustment")} className='px-6 py-1 hover:bg-gray-400'>Adjustment</li>
+                                <li onClick={() => handleOperation("internalTransfer")} className='px-6 py-1 hover:bg-gray-400'>Internal Transfer</li>
+                            </ul>
+                        }
+                    </li>
                 </Link>
                 <Link to="product-management">
                     <li className='hover:bg-gray-400 p-2'>Product Management</li>

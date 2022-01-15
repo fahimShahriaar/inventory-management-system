@@ -27,41 +27,41 @@ const Delivery = () => {
                         <div className="bg-gray-300">
                             <div className="flex flex-wrap justify-between p-4">
                                 <div className="">
-                                    <lebel className="mr-1 text-sm">SL</lebel>
+                                    <label className="mr-1 text-sm">SL</label>
                                     <input type="text" className="text-black focus:outline-gray-400 px-2 py-1 text-sm"></input>
                                 </div>
                                 <div className="">
-                                    <lebel className="mr-1 text-sm">Date </lebel>
+                                    <label className="mr-1 text-sm">Date </label>
                                     <input type="text" className="text-black focus:outline-gray-400 px-2 py-1 text-sm"></input>
                                 </div>
                                 <div className="">
-                                    <lebel className="mr-1 text-sm">Ref </lebel>
+                                    <label className="mr-1 text-sm">Ref </label>
                                     <input type="text" className="text-black focus:outline-gray-400 px-2 py-1 text-sm"></input>
                                 </div>
                                 <div className="">
-                                    <lebel className="mr-1 text-sm">Delivery to</lebel>
+                                    <label className="mr-1 text-sm">Delivery to</label>
                                     <input type="text" className="text-black focus:outline-gray-400 px-2 py-1 text-sm"></input>
                                 </div>
                             </div>
 
                         </div>
                         <div className="p-4 text-left container mx-auto">
-                            <lebel className="px-2 custom-text-color1">Notes</lebel>
+                            <label className="px-2 custom-text-color1">Notes</label>
                             <input type="text" className="text-black focus:outline-gray-400 px-2 py-1 text-sm"></input>
                         </div>
 
                         <div className="flex items-center justify-center border-t-2 border-b-2 border-gray-400">
                             <div className="p-4 text-left">
-                                <lebel className="px-2 ">Quick Scan</lebel>
+                                <label className="px-2 ">Quick Scan</label>
                                 <input type="text" className="text-black focus:outline-gray-400 px-2 py-1 text-sm"></input>
                             </div>
                             <div className="p-4">
-                                <lebel className="px-2 ">QTY</lebel>
+                                <label className="px-2 ">QTY</label>
                                 <input type="number" className="w-18 text-black focus:outline-gray-400 px-2 py-1 text-sm"></input>
                             </div>
                             <div className="p-4 flex items-center">
                                 <label htmlFor="myCheck" className="mr-1">Auto</label>
-                                <input type="checkbox" id="myCheck" onclick="myFunction()"></input>
+                                <input type="checkbox" id="myCheck"></input>
                             </div>
                         </div>
 

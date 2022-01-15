@@ -13,10 +13,15 @@ function App() {
   const [displaySetting, setDisplaySetting] = useState({
     branch: true, store: false, bin: false, user: false
   });
+  const [displayOperation, setDisplayOperation] = useState({
+    receive: true, delivery: false, adjustment: false, internalTransfer: false
+  });
+
   return (
     <AppContext.Provider value={{
       branchListState: [branchList, setBranchList],
-      displaySettingState: [displaySetting, setDisplaySetting]
+      displaySettingState: [displaySetting, setDisplaySetting],
+      displayOperationState: [displayOperation, setDisplayOperation]
     }}>
       <Routes>
         <Route path="/" element={<Home />} />
