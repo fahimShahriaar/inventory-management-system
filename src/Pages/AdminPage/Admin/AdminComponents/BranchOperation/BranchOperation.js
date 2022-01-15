@@ -4,6 +4,7 @@ import Delivery from './BranchOperationComponents/Delivery/Delivery';
 import Receive from './BranchOperationComponents/Receive/Receive';
 
 const BranchOperation = () => {
+    // Get displayOperationState from Context Api
     const { displayOperationState } = useContext(AppContext);
     const [displayOperation] = displayOperationState;
 

@@ -6,7 +6,7 @@ import Store from './SettingsComponents/Store/Store';
 import User from './SettingsComponents/User/User';
 
 const Settings = () => {
-    // get setting state from context API
+    // get displaySettingState from context API
     const { displaySettingState } = useContext(AppContext);
     const [displaySetting] = displaySettingState;
 
