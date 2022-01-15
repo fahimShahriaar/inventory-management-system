@@ -4,7 +4,7 @@ import { AppContext } from '../../../../App';
 
 const Branch = () => {
     const { branchListState } = useContext(AppContext);
-    const [branchList, setBranchList] = branchListState;
+    const [branchList] = branchListState;  // get state from context 
     const handleBranchDelete = () => {
         alert("Are you sure?")
     }
