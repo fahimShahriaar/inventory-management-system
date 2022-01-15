@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../../../../App';
-import Delivery from '../Delivery/Delivery';
-import Receive from '../Receive/Receive';
+import { AppContext } from '../../../../../App';
+import Delivery from './BranchOperationComponents/Delivery/Delivery';
+import Receive from './BranchOperationComponents/Receive/Receive';
 
 const BranchOperation = () => {
     const { displayOperationState } = useContext(AppContext);

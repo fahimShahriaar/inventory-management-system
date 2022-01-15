@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import AllProducts from '../AllProducts/AllProducts';
-import ProductDescriptionForm from '../ProductDescriptionForm/ProductDescriptionForm';
+import AllProducts from './ProductManagementComponents/AllProducts/AllProducts';
+import ProductDescriptionForm from './ProductManagementComponents/ProductDescriptionForm/ProductDescriptionForm';
 
 const ProductManagement = () => {
     const [displayAction, setDisplayAction] = useState({
