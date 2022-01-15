@@ -3,8 +3,15 @@ import { Link } from 'react-router-dom';
 import { AppContext } from '../../../../App';
 
 const AdminSidebar = () => {
+    // Get Data from Context API
+    const { currentNavItemState, displaySettingState, displayOperationState, displayActionState } = useContext(AppContext);
+
+    // managing currentNavItem
+    const [currentNavItem, setCurrentNavItem] = currentNavItemState;
+    console.log(currentNavItem);
+
+
     // managing settings
-    const { displaySettingState } = useContext(AppContext);
     const [displaySetting, setDisplaySetting] = displaySettingState;
     const [isSettingsDropDownOpen, setIsSettingsDropDownOpen] = useState(false);
     const handleDisplaySetting = (display) => {
@@ -18,7 +25,6 @@ const AdminSidebar = () => {
 
     // Managing Branch Operation
     const [isBranchOpDropDownOpen, setIsBranchOpDropDownOpen] = useState(false);
-    const { displayOperationState } = useContext(AppContext);
     const [displayOperation, setDisplayOperation] = displayOperationState;
     const handleOperation = (operation) => {
         let newOperation = { ...displayOperation };
@@ -31,7 +37,6 @@ const AdminSidebar = () => {
 
     // Manage Product Management
     const [isPdManagementDropDownOpen, setIsPdManagementDropDownOpen] = useState(false);
-    const { displayActionState } = useContext(AppContext);
     const [displayAction, setDisplayAction] = displayActionState;
     const handlePdManage = (action) => {
         let newAction = { ...displayAction };

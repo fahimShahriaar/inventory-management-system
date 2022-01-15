@@ -11,14 +11,22 @@ export const AppContext = createContext();
 function App() {
   const [branchList, setBranchList] = useState([]);
 
+  // Display the currentAdminSidebar/NaviagationState
+  const [currentNavItem, setCurrentNavItem] = useState({
+    settings: false, branchOperation: false, pdManagement: false
+  })
+
+  // Display the currentSettingState
   const [displaySetting, setDisplaySetting] = useState({
     branch: true, store: false, bin: false, user: false
   });
 
+  // Display the currentBranchOperationState
   const [displayOperation, setDisplayOperation] = useState({
     receive: true, delivery: false, adjustment: false, internalTransfer: false
   });
 
+  // Display the currentProductManagementState
   const [displayAction, setDisplayAction] = useState({
     managePd: true, allPd: false
   });
@@ -26,6 +34,7 @@ function App() {
   return (
     <AppContext.Provider value={{
       branchListState: [branchList, setBranchList],
+      currentNavItemState: [currentNavItem, setCurrentNavItem],
       displaySettingState: [displaySetting, setDisplaySetting],
       displayOperationState: [displayOperation, setDisplayOperation],
       displayActionState: [displayAction, setDisplayAction]
