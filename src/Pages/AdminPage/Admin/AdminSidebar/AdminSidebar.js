@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AppContext } from '../../../App';
+import { AppContext } from '../../../../App';
 
 const AdminSidebar = () => {
     // get setting state from context API

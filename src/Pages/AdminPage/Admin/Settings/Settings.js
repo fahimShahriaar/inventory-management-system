@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { AppContext } from '../../../App';
+import { AppContext } from '../../../../App';
 import Bin from '../Bin/Bin';
 import Branch from '../Branch/Branch';
 import Store from '../Store/Store';
@@ -29,7 +29,7 @@ const Settings = () => {
     }
     return (
         <div>
-            <div className="flex flex-wrap py-6">
+            {/* <div className="flex flex-wrap py-6">
                 <div className="w-6/12 md:w-3/12 px-4">
                     <div onClick={() => handleDisplaySetting("branch")} className='shadow-md bg-blue-400 text-white p-2 py-6 cursor-pointer text-center'>
                         Branch
@@ -50,7 +50,7 @@ const Settings = () => {
                         User
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="px-4">
                 {

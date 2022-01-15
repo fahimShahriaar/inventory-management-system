@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { AppContext } from '../../../App';
+import { AppContext } from '../../../../App';
 import Delivery from '../Delivery/Delivery';
 import Receive from '../Receive/Receive';
 
@@ -27,7 +27,7 @@ const BranchOperation = () => {
     return (
         <div>
             {/* previous code need to remove ======= starts here */}
-            <div className="flex flex-wrap py-6">
+            {/* <div className="flex flex-wrap py-6">
                 <div className="w-6/12 md:w-3/12 px-4">
                     <div className='shadow-md bg-blue-400 text-white p-2 py-6 cursor-pointer text-center'>
                         Receive
@@ -48,7 +48,7 @@ const BranchOperation = () => {
                         Internal Transfer
                     </div>
                 </div>
-            </div>
+            </div> */}
             {/* ============== end here  ============= */}
 
             {/* dynamically rendering */}

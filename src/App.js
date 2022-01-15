@@ -1,9 +1,9 @@
 import { createContext, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Admin from './components/Admin/Admin';
-import BranchOperation from './components/Admin/BranchOperation/BranchOperation';
-import ProductManagement from './components/Admin/ProductManagement/ProductManagement';
-import Settings from './components/Admin/Settings/Settings';
+import Admin from './Pages/AdminPage/Admin/Admin';
+import BranchOperation from './Pages/AdminPage/Admin/BranchOperation/BranchOperation';
+import ProductManagement from './Pages/AdminPage/Admin/ProductManagement/ProductManagement';
+import Settings from './Pages/AdminPage/Admin/Settings/Settings';
 import Home from './components/Home/Home';
 
 export const AppContext = createContext();
