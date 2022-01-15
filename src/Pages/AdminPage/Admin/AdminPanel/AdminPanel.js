@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 
-const AdminDashboard = () => {
+const AdminPanel = () => {
     let location = useLocation();
     let currentPath = location.pathname;
     return (
@@ -22,4 +22,4 @@ const AdminDashboard = () => {
     );
 };
 
-export default AdminDashboard;
+export default AdminPanel;

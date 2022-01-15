@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import { AppContext } from '../../../../App';
 
 const AdminSidebar = () => {
-    // get setting state from context API
+    // managing settings
     const { displaySettingState } = useContext(AppContext);
     const [displaySetting, setDisplaySetting] = displaySettingState;
-
-    // managing settings
     const [isSettingsDropDownOpen, setIsSettingsDropDownOpen] = useState(false);
     const handleDisplaySetting = (display) => {
         let newSetting = { ...displaySetting };
@@ -28,8 +26,22 @@ const AdminSidebar = () => {
             newOperation[key] = false;
         }
         newOperation[operation] = newOperation[operation] ? false : true;
-        // console.log(newOperation);
         setDisplayOperation(newOperation);
+    }
+
+    // Manage Product Management
+    const [isPdManagementDropDownOpen, setIsPdManagementDropDownOpen] = useState(false);
+    const { displayActionState } = useContext(AppContext);
+    const [displayAction, setDisplayAction] = displayActionState;
+    const handlePdManage = (action) => {
+        let newAction = { ...displayAction };
+        for (const key in newAction) {
+            newAction[key] = false;
+        }
+        newAction[action] = newAction[action] ? false : true;
+        console.log(newAction);
+
+        setDisplayAction(newAction);
     }
 
 
@@ -67,7 +79,17 @@ const AdminSidebar = () => {
                     </li>
                 </Link>
                 <Link to="product-management">
-                    <li className='hover:bg-gray-400 p-2'>Product Management</li>
+                    <li className='hover:bg-gray-400'
+                        onClick={() => setIsPdManagementDropDownOpen(true)}>
+                        <span className='block p-2'>Product Management</span>
+                        {
+                            isPdManagementDropDownOpen &&
+                            <ul className='bg-gray-700'>
+                                <li onClick={() => handlePdManage("managePd")} className='px-6 py-1 hover:bg-gray-400 border-t border-gray-700'>Manage Products</li>
+                                <li onClick={() => handlePdManage("allPd")} className='px-6 py-1 hover:bg-gray-400'>All Products</li>
+                            </ul>
+                        }
+                    </li>
                 </Link>
                 <Link to="link4">
                     <li className='hover:bg-gray-400 p-2'>Coming soon...</li>

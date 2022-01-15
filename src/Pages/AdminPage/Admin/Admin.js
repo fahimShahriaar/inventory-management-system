@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminDashboard from './AdminDashboard/AdminDashboard';
+import AdminPanel from './AdminPanel/AdminPanel';
 import AdminSidebar from './AdminSidebar/AdminSidebar';
 
 const Admin = () => {
@@ -11,7 +11,7 @@ const Admin = () => {
                     <AdminSidebar />
                 </div>
                 <div className='w-10/12'>
-                    <AdminDashboard />
+                    <AdminPanel />
                 </div>
             </div>
         </div>

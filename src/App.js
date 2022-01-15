@@ -10,18 +10,25 @@ export const AppContext = createContext();
 
 function App() {
   const [branchList, setBranchList] = useState([]);
+
   const [displaySetting, setDisplaySetting] = useState({
     branch: true, store: false, bin: false, user: false
   });
+
   const [displayOperation, setDisplayOperation] = useState({
     receive: true, delivery: false, adjustment: false, internalTransfer: false
+  });
+
+  const [displayAction, setDisplayAction] = useState({
+    managePd: true, allPd: false
   });
 
   return (
     <AppContext.Provider value={{
       branchListState: [branchList, setBranchList],
       displaySettingState: [displaySetting, setDisplaySetting],
-      displayOperationState: [displayOperation, setDisplayOperation]
+      displayOperationState: [displayOperation, setDisplayOperation],
+      displayActionState: [displayAction, setDisplayAction]
     }}>
       <Routes>
         <Route path="/" element={<Home />} />
