@@ -12,9 +12,9 @@ function App() {
   const [branchList, setBranchList] = useState([]);
 
   // Display the currentAdminSidebar/NaviagationState
-  const [currentNavItem, setCurrentNavItem] = useState({
+  /* const [currentNavItem, setCurrentNavItem] = useState({
     settings: false, branchOperation: false, pdManagement: false
-  })
+  }) */
 
   // Display the currentSettingState
   const [displaySetting, setDisplaySetting] = useState({
