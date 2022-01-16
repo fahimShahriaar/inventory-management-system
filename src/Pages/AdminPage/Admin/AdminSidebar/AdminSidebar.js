@@ -4,16 +4,15 @@ import { AppContext } from '../../../../App';
 
 const AdminSidebar = () => {
     // Get Data from Context API
-    const { currentNavItemState, displaySettingState, displayOperationState, displayActionState } = useContext(AppContext);
+    const { displaySettingState, displayOperationState, displayActionState } = useContext(AppContext);
 
-    // managing currentNavItem
-    const [currentNavItem, setCurrentNavItem] = currentNavItemState;
-    console.log(currentNavItem);
-
+    // Nav Items Dropdown state management 
+    const [isSettingsDropDownOpen, setIsSettingsDropDownOpen] = useState(false);
+    const [isBranchOpDropDownOpen, setIsBranchOpDropDownOpen] = useState(false);
+    const [isPdManagementDropDownOpen, setIsPdManagementDropDownOpen] = useState(false);
 
     // managing settings
     const [displaySetting, setDisplaySetting] = displaySettingState;
-    const [isSettingsDropDownOpen, setIsSettingsDropDownOpen] = useState(false);
     const handleDisplaySetting = (display) => {
         let newSetting = { ...displaySetting };
         for (const key in newSetting) {
@@ -24,7 +23,6 @@ const AdminSidebar = () => {
     }
 
     // Managing Branch Operation
-    const [isBranchOpDropDownOpen, setIsBranchOpDropDownOpen] = useState(false);
     const [displayOperation, setDisplayOperation] = displayOperationState;
     const handleOperation = (operation) => {
         let newOperation = { ...displayOperation };
@@ -36,7 +34,6 @@ const AdminSidebar = () => {
     }
 
     // Manage Product Management
-    const [isPdManagementDropDownOpen, setIsPdManagementDropDownOpen] = useState(false);
     const [displayAction, setDisplayAction] = displayActionState;
     const handlePdManage = (action) => {
         let newAction = { ...displayAction };
@@ -44,8 +41,6 @@ const AdminSidebar = () => {
             newAction[key] = false;
         }
         newAction[action] = newAction[action] ? false : true;
-        console.log(newAction);
-
         setDisplayAction(newAction);
     }
 
@@ -55,7 +50,12 @@ const AdminSidebar = () => {
             <ul>
                 <Link to="settings">
                     <li className='hover:bg-gray-400'
-                        onClick={() => setIsSettingsDropDownOpen(true)}>
+                        onClick={() => {
+                            setIsSettingsDropDownOpen(true);
+                            setIsBranchOpDropDownOpen(false);
+                            setIsPdManagementDropDownOpen(false);
+                        }}
+                    >
                         <span className='block p-2'>Settings</span>
                         {
                             isSettingsDropDownOpen &&
@@ -70,7 +70,12 @@ const AdminSidebar = () => {
                 </Link>
                 <Link to="branch-operation">
                     <li className='hover:bg-gray-400'
-                        onClick={() => setIsBranchOpDropDownOpen(true)}>
+                        onClick={() => {
+                            setIsSettingsDropDownOpen(false);
+                            setIsBranchOpDropDownOpen(true);
+                            setIsPdManagementDropDownOpen(false);
+                        }}
+                    >
                         <span className='block p-2'>Branch Operation</span>
                         {
                             isBranchOpDropDownOpen &&
@@ -85,7 +90,12 @@ const AdminSidebar = () => {
                 </Link>
                 <Link to="product-management">
                     <li className='hover:bg-gray-400'
-                        onClick={() => setIsPdManagementDropDownOpen(true)}>
+                        onClick={() => {
+                            setIsSettingsDropDownOpen(false);
+                            setIsBranchOpDropDownOpen(false);
+                            setIsPdManagementDropDownOpen(true)
+                        }}
+                    >
                         <span className='block p-2'>Product Management</span>
                         {
                             isPdManagementDropDownOpen &&

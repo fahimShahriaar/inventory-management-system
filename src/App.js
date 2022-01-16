@@ -34,7 +34,6 @@ function App() {
   return (
     <AppContext.Provider value={{
       branchListState: [branchList, setBranchList],
-      currentNavItemState: [currentNavItem, setCurrentNavItem],
       displaySettingState: [displaySetting, setDisplaySetting],
       displayOperationState: [displayOperation, setDisplayOperation],
       displayActionState: [displayAction, setDisplayAction]
