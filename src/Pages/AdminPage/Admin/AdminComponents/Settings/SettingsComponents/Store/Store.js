@@ -1,9 +1,13 @@
 import React from 'react';
+import CreateStoreForm from '../CreateStoreForm/CreateStoreForm';
 
 const Store = () => {
     return (
-        <div className="text-2xl my-6">
-            This is store
+        <div className="my-6">
+            <div className='w-6/12'>
+                <CreateStoreForm />
+            </div>
+
         </div>
     );
 };
