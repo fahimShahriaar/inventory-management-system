@@ -1,19 +1,18 @@
-import React, { useContext, useRef } from 'react';
-import { AppContext } from '../../../../../../../App';
+import React, { useRef } from 'react';
 
 const CreateBranchForm = () => {
-    const { branchListState } = useContext(AppContext);
-    const [branchList, setBranchList] = branchListState;
-
     const branchNameRef = useRef();
     const branchIDRef = useRef();
     const branchDescRef = useRef();
 
+    // Handle Create brunch button 
     const handleCreateBranch = () => {
         branchNameRef.current.value = '';
         branchIDRef.current.value = '';
         branchDescRef.current.value = '';
     }
+
+    // Handle Create Branch Form Submit
     const handleSubmit = (e) => {
         console.log(branchNameRef.current.value, branchIDRef.current.value, branchDescRef.current.value);
         const newBranch = {
