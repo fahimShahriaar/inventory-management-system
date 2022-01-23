@@ -1,13 +1,23 @@
-import React, { useContext } from 'react';
-import CreateBranchForm from '../CreateBranchForm/CreateBranchForm';
+import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../../../../../../../App';
+import BranchList from '../BranchList/BranchList';
+import CreateBranchForm from '../CreateBranchForm/CreateBranchForm';
 
 const Branch = () => {
     const { branchListState } = useContext(AppContext);
-    const [branchList] = branchListState;  // get state from context 
-    const handleBranchDelete = () => {
-        alert("Are you sure?")
-    }
+    const [branchList, setBranchList] = branchListState;  // get state from context 
+
+    useEffect(() => {
+        fetch('http://localhost:5000/branches')
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                setBranchList(data);
+            })
+    }, [setBranchList])
+
+    // console.log(branchList);
+
     return (
         <div className="my-6">
             <div className="flex flex-wrap">
@@ -17,17 +27,10 @@ const Branch = () => {
                         <CreateBranchForm />
                     </div>
                 </div>
-                <div className="w-1/2 py-4 px-8">
+                <div className="w-full p-4 mt-8">
                     <h2 className="text-2xl mb-4">Branch List</h2>
                     <div>
-                        {
-                            branchList.map((branch, i) => <div key={i} className={(i % 2 === 0 ? "bg-gray-200 p-2" : "bg-gray-300 p-2")}>
-                                <div className="flex justify-between">
-                                    <div>{branch}</div>
-                                    <button onClick={handleBranchDelete} className="bg-red-500 px-2 py-1 text-white text-xs">Delete</button>
-                                </div>
-                            </div>)
-                        }
+                        <BranchList branchList={branchList} />
                     </div>
                 </div>
             </div>

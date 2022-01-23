@@ -4,21 +4,43 @@ import { AppContext } from '../../../../../../../App';
 const CreateBranchForm = () => {
     const { branchListState } = useContext(AppContext);
     const [branchList, setBranchList] = branchListState;
-    const branchRef = useRef();
-    // console.log(branchList);
+
+    const branchNameRef = useRef();
+    const branchIDRef = useRef();
+    const branchDescRef = useRef();
+
     const handleCreateBranch = () => {
-        const newBranchList = [...branchList, branchRef.current.value];
-        setBranchList(newBranchList);
-        console.log(branchList);
-        branchRef.current.value = '';
+        branchNameRef.current.value = '';
+        branchIDRef.current.value = '';
+        branchDescRef.current.value = '';
     }
     const handleSubmit = (e) => {
+        console.log(branchNameRef.current.value, branchIDRef.current.value, branchDescRef.current.value);
+        const newBranch = {
+            branchName: branchNameRef.current.value,
+            branchID: branchIDRef.current.value,
+            branchDesc: branchDescRef.current.value
+        }
+
+        fetch('http://localhost:5000/branch', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newBranch)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
+
         e.preventDefault();
     }
     return (
         <div>
-            <form onSubmit={handleSubmit} className="w-6/12">
-                <input type="text" ref={branchRef} placeholder="Branch name" className='border w-full block my-2 p-2 rounded focus:outline-gray-400 placeholder:text-gray-600 text-sm' />
+            <form onSubmit={handleSubmit} className="w-full">
+                <input type="text" ref={branchNameRef} placeholder="Branch name" className='border w-full block my-2 p-2 rounded focus:outline-gray-400 placeholder:text-gray-600 text-sm' />
+                <input type="text" ref={branchIDRef} placeholder="Branch ID" className='border w-full block my-2 p-2 rounded focus:outline-gray-400 placeholder:text-gray-600 text-sm' />
+                <textarea ref={branchDescRef} className='border w-full block my-2 p-2 rounded focus:outline-gray-400 placeholder:text-gray-600 text-sm' placeholder="Description..."></textarea>
                 <button type="submit" onClick={() => handleCreateBranch()} className="text-sm bg-emerald-600 text-gray-50 px-4 py-1 my-2 rounded">Create Branch</button>
             </form>
         </div>
