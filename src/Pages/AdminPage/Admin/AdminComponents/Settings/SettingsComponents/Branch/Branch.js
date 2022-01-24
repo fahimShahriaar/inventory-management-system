@@ -1,24 +1,8 @@
-import React, { useContext, useEffect } from 'react';
-import { AppContext } from '../../../../../../../App';
+import React from 'react';
 import BranchList from '../BranchList/BranchList';
 import CreateBranchForm from '../CreateBranchForm/CreateBranchForm';
 
 const Branch = () => {
-    // const { branchListState } = useContext(AppContext);
-    // const [branchList, setBranchList] = branchListState;  // get state from context 
-
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/branches')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             setBranchList(data);
-    //         })
-    //         .catch(err => console.log(err))
-    // }, [setBranchList])
-
-    // console.log(branchList);
-
     return (
         <div className="my-6">
             <div className="flex flex-wrap">
