@@ -11,9 +11,10 @@ const Branch = () => {
         fetch('http://localhost:5000/branches')
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 setBranchList(data);
             })
+            .catch(err => console.log(err))
     }, [setBranchList])
 
     // console.log(branchList);
