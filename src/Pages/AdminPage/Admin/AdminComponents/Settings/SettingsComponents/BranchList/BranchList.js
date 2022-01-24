@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { AppContext } from '../../../../../../../App';
 
-const BranchList = ({ branchList }) => {
-    console.log(branchList);
+const BranchList = () => {
+    const { branchListState } = useContext(AppContext);
+    const [branchList, setBranchList] = branchListState; // Get data from context
+
+    useEffect(() => {
+        fetch('http://localhost:5000/branches')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setBranchList(data);
+            })
+            .catch(err => console.log(err))
+    }, [setBranchList])
 
     const handleBranchDelete = () => {
         alert("Are you sure?")

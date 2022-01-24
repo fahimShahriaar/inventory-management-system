@@ -3,7 +3,10 @@ import { AppContext } from '../../../../../../../App';
 
 const CreateStoreForm = () => {
     const [dropdown, setDropdown] = useState(false);
-    const [selectedBranch, setSelectedBranch] = useState({});
+    const [selectedBranch, setSelectedBranch] = useState({
+        branchID: '',
+        branchName: ''
+    });
 
     const { branchListState } = useContext(AppContext);
     const [branchList] = branchListState;  // get state from context
