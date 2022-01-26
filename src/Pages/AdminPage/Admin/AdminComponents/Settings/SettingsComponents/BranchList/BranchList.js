@@ -6,10 +6,10 @@ const BranchList = () => {
     const [branchList, setBranchList] = branchListState; // Get data from context
 
     useEffect(() => {
-        fetch('http://localhost:5000/branches')
+        fetch('http://localhost:5000/admin/branches')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setBranchList(data);
             })
             .catch(err => console.log(err))

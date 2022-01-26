@@ -21,7 +21,7 @@ const CreateBranchForm = () => {
             branchDesc: branchDescRef.current.value
         }
 
-        fetch('http://localhost:5000/branch', {
+        fetch('http://localhost:5000/admin/branch', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

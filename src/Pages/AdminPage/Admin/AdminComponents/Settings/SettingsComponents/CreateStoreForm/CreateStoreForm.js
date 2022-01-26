@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { AppContext } from '../../../../../../../App';
 
 const CreateStoreForm = () => {
@@ -7,25 +7,55 @@ const CreateStoreForm = () => {
         branchID: '',
         branchName: ''
     });
+    const [newStoreState, setNewStoreState] = useState({
+        storeID: '',
+        storeName: ''
+    })
 
     const { branchListState } = useContext(AppContext);
     const [branchList] = branchListState;  // get state from context
-    console.log(branchList);
+    // console.log(branchList);
 
     const storeNameRef = useRef();
     const storeIDRef = useRef();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
+
 
     const handleSelectedBranch = (branch) => {
-        // console.log(branch);
+        console.log(branch._id);
         setDropdown(!dropdown);
         setSelectedBranch(branch);
     }
 
-    console.log(selectedBranch);
+    const handleSubmit = (e) => {
+        const newStore = {
+            storeID: storeIDRef.current.value,
+            storeName: storeNameRef.current.value,
+        }
+        // console.log(newStore);
+        setNewStoreState(newStore);
+
+        storeIDRef.current.value = '';
+        storeNameRef.current.value = '';
+
+        e.preventDefault();
+    }
+
+    // console.log(newStoreState);
+
+    useEffect(() => {
+        newStoreState.storeID && newStoreState.storeName &&
+            fetch(`http://localhost:5000/admin/branch/${selectedBranch._id}`, {
+                method: 'PUT', // Method itself
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+                },
+                body: JSON.stringify(newStoreState) // We send data in JSON format
+            })
+                .then(res => res.json())
+                .then(data => console.log(data))
+                .catch(err => console.log(err))
+    }, [newStoreState]);
 
     return (
         <div>
